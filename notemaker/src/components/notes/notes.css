@@ -1,0 +1,21 @@
+.notes{
+    width: 100vh;
+    height: 100%;
+    overflow: hidden;
+}
+.plus_button{
+    position: fixed;
+    background-color: blue;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    right: 50px;
+    bottom: 50px;
+    z-index: 1000;
+}
+.plus_button>span{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
