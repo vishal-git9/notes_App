@@ -7,9 +7,11 @@ import {
   Stack,
   Avatar,
   useColorModeValue,
+  IconButton
 } from '@chakra-ui/react';
+import {EditIcon,DeleteIcon} from "@chakra-ui/icons"
 
-export default function Notecard({title,subject,body}) {
+export default function Notecard({title,subject,body,handleUpdate,handleDelete,id}) {
   return (
     <Center py={6}>
       <Box
@@ -54,7 +56,8 @@ export default function Notecard({title,subject,body}) {
             {body}
           </Text>
         </Stack>
-        <Stack mt={6} direction={'row'} alignItems={"flex-start"}>
+        <Stack mt={6} direction={'row'} alignItems={"flex-start"} justifyContent="space-between">
+          <Box display={"flex"} gap="10px">
           <Avatar
             src={'https://avatars0.githubusercontent.com/u/1164541?v=4'}
             alt={'Author'}
@@ -62,6 +65,11 @@ export default function Notecard({title,subject,body}) {
           <Stack direction={'column'} alignItems={"flex-start"} spacing={-3} fontSize={'sm'}>
             <Text fontWeight={600}>Achim Rolle</Text>
             <Text color={'gray.500'}>Feb 08, 2021</Text>
+          </Stack>
+          </Box>
+          <Stack direction={'row'}  spacing={3} fontSize={'sm'}>
+            <IconButton colorScheme={"blue"} variant={"outline"} icon={<EditIcon/>} onClick={()=>handleUpdate(id)}>Edit</IconButton>
+            <IconButton colorScheme={"red"} variant={"solid"} icon={<DeleteIcon/>} onClick={()=>handleDelete(id)}>Delete</IconButton>
           </Stack>
         </Stack>
       </Box>
